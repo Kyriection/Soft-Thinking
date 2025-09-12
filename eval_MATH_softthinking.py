@@ -7,8 +7,6 @@ import random
 import torch
 import evaluate
 from transformers import AutoModelForCausalLM, AutoTokenizer, OPTForCausalLM, GPTNeoXForCausalLM
-from vllm import LLM, SamplingParams
-from vllm.lora.request import LoRARequest
 from collections import Counter
 from datasets import load_dataset
 from functools import partial
