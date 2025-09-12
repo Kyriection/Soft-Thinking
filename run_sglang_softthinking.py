@@ -271,7 +271,7 @@ Test Cases:
                 cuda_graph_max_bs=args.cuda_graph_max_bs,
                 sampling_backend=args.sampling_backend
             )
-            outputs =  llm.generate(prompt_list[idx:idx+max_batch], sampling_params)
+            outputs = llm.generate(prompt_list[idx:idx+max_batch], sampling_params)
             decoded_text_list.extend([o["text"] for o in outputs])
             finish_generation_list.extend([o["meta_info"]["finish_reason"]["type"] == "stop" and not args.enable_soft_thinking for o in outputs])
 
@@ -449,7 +449,7 @@ Test Cases:
             token=args.hf_token
         )
     print(results_statistics, flush=True)
-    
+
 
 if __name__ == "__main__":
     main()
