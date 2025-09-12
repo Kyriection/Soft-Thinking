@@ -340,8 +340,8 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    # main(args)
-    # eval_main(os.path.join(args.save_dir, "predictions.jsonl"), save=True, k=None, output_dir=args.save_dir)
+    main(args)
+    eval_main(os.path.join(args.save_dir, "predictions.jsonl"), save=True, k=None, output_dir=args.save_dir)
     
 
 
