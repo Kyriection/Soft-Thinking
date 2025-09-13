@@ -34,7 +34,7 @@ def logit_adjustment(token_ids, logits, adjust_ids, values, max_len=-1):
 def trim_output(output):
     instruction_prefix = "Answer the following question"
     question_prefix = 'Question:'
-    comment_prefix = 'Comment:'  # for some reason, Llama 13B likes to generate these comments indefinitely
+    comment_prefix = 'Comment:'  
 
     for prefix in [instruction_prefix, question_prefix, comment_prefix]:
         if prefix in output:
@@ -162,8 +162,6 @@ def main(args):
     if args.max_examples and len(test_data) > args.max_examples:
         test_data = test_data[:args.max_examples]
 
-    test_data = test_data[:2]
-
     if not os.path.exists(args.save_dir):
         os.makedirs(args.save_dir)
 
@@ -246,12 +244,7 @@ def main(args):
 
         torch.cuda.empty_cache()
 
-    import pdb; pdb.set_trace()
-
-    outputs = [[trim_output(o) for o in output] for output in all_outputs]
-
-    pdb.set_trace()
-
+    outputs = [[trim_output(o['text'])] for o in all_outputs]
 
     predictions = [{
         "prompt": prompt,
@@ -264,8 +257,6 @@ def main(args):
     with open(os.path.join(args.save_dir, "predictions.jsonl"), "w") as fout:
         for prediction in predictions:
             fout.write(json.dumps(prediction) + "\n")
-    
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
