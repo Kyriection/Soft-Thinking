@@ -231,7 +231,7 @@ def main(args):
             enable_soft_thinking=True,
             add_noise_dirichlet=False,
             add_noise_gumbel_softmax=False,
-            max_topk=10,
+            max_topk=5,
             cuda_graph_max_bs=None,
             sampling_backend="flashinfer"
         )
