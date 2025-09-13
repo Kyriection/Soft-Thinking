@@ -219,10 +219,10 @@ def main(args):
     all_outputs = []
     idx = 0
     while idx < len(prompt_list):
-        print(f"Number of GPUs available: {1}", flush=True)
+        print(f"Number of GPUs available: {2}", flush=True)
         llm = sgl.Engine(
             model_path=args.model_name_or_path,
-            tp_size=1,
+            tp_size=2,
             log_level="info",
             trust_remote_code=True,
             random_seed=42,
