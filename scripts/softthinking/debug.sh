@@ -1,5 +1,5 @@
 model="deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"
-save_dir="results/amc23/r1-1.5b_softthinking"
+save_dir="results/math500/r1-1.5b_softthinking"
 GPU=0
 
 CUDA_VISIBLE_DEVICES=${GPU} python -u eval_MATH_softthinking.py \
