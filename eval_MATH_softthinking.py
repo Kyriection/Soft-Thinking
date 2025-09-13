@@ -248,7 +248,10 @@ def main(args):
 
     import pdb; pdb.set_trace()
 
-    outputs = [[trim_output(o) for o in output] for output in result]
+    outputs = [[trim_output(o) for o in output] for output in all_outputs]
+
+    pdb.set_trace()
+
 
     predictions = [{
         "prompt": prompt,
