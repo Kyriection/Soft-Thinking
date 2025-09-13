@@ -62,6 +62,7 @@ def main(res_path, save=False, k=None, output_dir=None):
             example["model_generation"] = example["model_output"]
         if k is not None:
             example["model_generation"] = example["model_generation"][:k]
+        import pdb; pdb.set_trace()
         gt_cot = example["answer"]
         gt_ans = extract_answer(gt_cot, data_name="omni-math")
         gt_cot = str(gt_cot).strip()

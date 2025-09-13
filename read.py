@@ -11,6 +11,8 @@ parser.add_argument("--save_dir", type=str, default="results/gsm")
 parser.add_argument("--model", type=str, default=None)
 args = parser.parse_args()
 
+eval_main(os.path.join(args.save_dir, "predictions.jsonl"), save=True, k=None, output_dir=args.save_dir)
+
 def calculate_token_cost(res_path, tokenizer):
 
     with open(res_path, "r") as f:
