@@ -19,6 +19,7 @@ def calculate_token_cost(res_path, tokenizer):
 
     token_budget = []
     for output in results:
+        import pdb; pdb.set_trace()
         token_cost = tokenizer.encode(output['model_generation'][0])
         token_budget.append(len(token_cost))
     print(f"Samples: {len(token_budget)} Total token cost: {np.mean(token_budget)}")
